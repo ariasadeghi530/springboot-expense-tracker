@@ -1,4 +1,4 @@
-package com.example.expensetracker.models;
+package com.example.expensetracker.model;
 
 import java.time.Instant;
 import javax.persistence.Entity;

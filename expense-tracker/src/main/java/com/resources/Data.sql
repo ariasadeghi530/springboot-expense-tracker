@@ -1,12 +1,7 @@
-
-insert into user
+insert into users 
 values
-    (1, "Aria", "ariasadeghi@gmail.com")
-insert into user
-values
-    (2, "Tim", "tim@email.com")
-insert into user
-values
+    (1, "Aria", "ariasadeghi@gmail.com"),
+    (2, "Tim", "tim@email.com"),
     (3, "Bob", "bob@email.com")
 
 insert into category
