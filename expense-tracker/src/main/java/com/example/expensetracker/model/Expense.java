@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name="expense")
+@Table(name="EXPENSE")
 public class Expense {
     @Id
     private Long id;
 
-    private Instant expenseDate;
+    private Instant expensedate;
 
     private String description;
 
