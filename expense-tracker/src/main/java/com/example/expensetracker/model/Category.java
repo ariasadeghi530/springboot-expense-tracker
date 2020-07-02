@@ -11,7 +11,7 @@ import lombok.NonNull;
 @Entity
 @NoArgsConstructor
 @Data
-@Table(name="CATEGORY")
+@Table(name="categories")
 public class Category {
     @Id
     private Long id;
