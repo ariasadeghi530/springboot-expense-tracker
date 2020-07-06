@@ -27,10 +27,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 @RequestMapping("/api")
 public class CategoryController {
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     public CategoryController(CategoryRepository categoryRepository){
-        super();
         this.categoryRepository = categoryRepository;
     }
 

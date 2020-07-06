@@ -1,24 +1,27 @@
 package com.example.expensetracker.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-@Entity
-@NoArgsConstructor
-@Data
-@Table(name="categories")
+@Document("category")
 public class Category {
     @Id
     private Long id;
 
     // Travel, Grocery,...
-    @NonNull
     private String name;
 
- 
+    public Long getId(){
+        return this.id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
 }

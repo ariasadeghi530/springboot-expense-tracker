@@ -1,37 +1,39 @@
 package com.example.expensetracker.model;
 
 import java.time.Instant;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Data
-@Table(name="expenses")
+@Document("expenses")
 public class Expense {
-    @Id
+   @Id
     private Long id;
-
     private Instant expensedate;
-
     private String description;
 
-    @ManyToOne
-    private Category category;
+    public Long getId(){
+        return this.id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
 
-    @JsonIgnore
-    @ManyToOne
-    private User user;
+    public Instant getExpenseDate(){
+        return this.expensedate;
 
+    }
+    public void setExpenseDate(Instant expensedate){
+        this.expensedate = expensedate;
+    }
 
+    public String getDescription(){
+        return this.description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
 
 }

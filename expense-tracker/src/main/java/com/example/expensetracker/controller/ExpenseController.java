@@ -10,7 +10,6 @@ import javax.validation.Valid;
 import com.example.expensetracker.model.Expense;
 import com.example.expensetracker.repository.ExpenseRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +25,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class ExpenseController {
     
-    @Autowired
-    private ExpenseRepository expenseRepository;
+    private final ExpenseRepository expenseRepository;
+
+
+    public ExpenseController(ExpenseRepository expenseRepository){
+        this.expenseRepository = expenseRepository;
+    }
+
 
     @GetMapping("/expenses")
     List<Expense> getExpenses(){
