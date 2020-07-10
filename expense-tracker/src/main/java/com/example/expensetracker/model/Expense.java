@@ -3,20 +3,23 @@ package com.example.expensetracker.model;
 import java.time.Instant;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document("expenses")
 public class Expense {
    @Id
-    private Long id;
+    private String id;
     private Instant expensedate;
     private String description;
+    @DBRef
+    private Category category;
 
-    public Long getId(){
+    public String getId(){
         return this.id;
     }
-    public void setId(Long id){
+    public void setId(String id){
         this.id = id;
     }
 
@@ -34,6 +37,14 @@ public class Expense {
 
     public void setDescription(String description){
         this.description = description;
+    }
+
+    public Category getCategory(){
+        return this.category;
+    }
+
+    public void setCategory(Category category){
+        this.category = category;
     }
 
 }

@@ -7,15 +7,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("category")
 public class Category {
     @Id
-    private Long id;
+    private String id;
 
     // Travel, Grocery,...
     private String name;
 
-    public Long getId(){
+    public String getId(){
         return this.id;
     }
-    public void setId(Long id){
+    public void setId(String id){
         this.id = id;
     }
     public String getName(){

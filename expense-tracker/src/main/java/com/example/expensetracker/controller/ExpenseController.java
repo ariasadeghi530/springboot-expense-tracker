@@ -32,7 +32,7 @@ public class ExpenseController {
         this.expenseRepository = expenseRepository;
     }
 
-
+    // update for specific user
     @GetMapping("/expenses")
     List<Expense> getExpenses(){
         return expenseRepository.findAll();
@@ -45,13 +45,13 @@ public class ExpenseController {
     }   
 
     @PostMapping("/expenses")
-    ResponseEntity<Expense> createExpense (@Valid @RequestBody Expense expense) throws URISyntaxException{
+    ResponseEntity<Expense> createExpense(@Valid @RequestBody Expense expense) throws URISyntaxException{
         Expense result = expenseRepository.save(expense);
         return ResponseEntity.created(new URI("/api/expenses" + result.getId())).body(result);
     }
 
     @DeleteMapping("/expenses/{id}")
-    ResponseEntity<?> deleteExpense(@PathVariable Long id){
+    ResponseEntity<?> deleteExpense(@PathVariable String id){
         expenseRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }

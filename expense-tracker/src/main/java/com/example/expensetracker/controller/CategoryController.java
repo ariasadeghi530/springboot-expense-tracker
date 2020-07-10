@@ -39,7 +39,7 @@ public class CategoryController {
     }
     
     @GetMapping("/category/{id}")
-    ResponseEntity<?> getCategory(@PathVariable Long id){
+    ResponseEntity<?> getCategory(@PathVariable String id){
         Optional<Category> category = categoryRepository.findById(id);
         return category.map(response -> ResponseEntity.ok().body(response))
         .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -58,7 +58,7 @@ public class CategoryController {
     }   
 
     @DeleteMapping("/categories/{id}")
-    ResponseEntity<?> deleteCategory (@PathVariable Long id){
+    ResponseEntity<?> deleteCategory (@PathVariable String id){
         categoryRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }

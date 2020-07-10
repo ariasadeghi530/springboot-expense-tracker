@@ -1,9 +1,10 @@
 package com.example.expensetracker.model;
 
 import java.util.Date;
-
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -13,6 +14,8 @@ public class User {
     private String id;
     private String name;
     private String email;
+    @DBRef
+    private List <Expense> expenses;
     private Date creationDate = new Date();
 
     public String getUserId(){
@@ -37,6 +40,14 @@ public class User {
 
     public void setEmail(String email){
         this.email = email;
+    }
+
+    public List<Expense> getExpenses(){
+        return this.expenses;
+    }
+
+    public void setExpenses(List<Expense> expenses){
+        this.expenses = expenses;
     }
 
     public Date getCreationDate(){
